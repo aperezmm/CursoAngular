@@ -1,1 +1,20 @@
-<h2>{{titulo}}</h2>>
+<h2>{{titulo}}</h2> 
+{{nombre | uppercase}}
+-
+{{fecha| date:'fullDate'}}
+-
+{{5 | conversor: 7}}
+
+<hr/>
+
+
+<h3>Listado de prendas de ropa</h3>
+    <input type="text" [(ngModel)]="prenda_a_guardar">
+    <button (click)="guardarPrenda()">Añadir prenda</button>
+    <p *ngIf="prenda_a_guardar"> <strong>La prenda a guardar es: {{prenda_a_guardar}}</strong></p>
+        <ul>
+            <li *ngFor="let prenda of listado_ropa; let i = index"> <!-- De esta forma sé el indice del array-->
+                {{prenda}}
+                <button (click)="eliminarPrenda(i)"><strong>Eliminar prenda</strong></button>
+            </li>
+        </ul>
