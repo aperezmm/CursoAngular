@@ -11,50 +11,64 @@
 
     div{
         float: left;
+        
     }
 </style>
 
-<form #formCoche="ngForm" (ngSubmit)="onSubmit(); formCoche.reset()">
-    <p>
-        <label>Marca:</label><br>
-        <input type="text" name="marca" #marca="ngModel" [(ngModel)]="coche.marca" required>
-        <span *ngIf="marca.touched && !marca.valid">
-            La marca ingresada no es valida.
-        </span>
-    </p>
-    <p>
-        <label>Linea:</label><br>
-        <input type="text" name="linea" #linea="ngModel" [(ngModel)]="coche.linea" required>
-        <span *ngIf="linea.touched && !linea.valid">
-            La linea del vehiculo ingresada no es valida.
-        </span>
-    </p>
-    <p>
-        <label>Caballaje:</label><br>
-        <input type="text" name="caballaje" #caballaje="ngModel" [(ngModel)]="coche.caballaje" required 
-            pattern="[0-9]+"> <!-- Solo acepta numeros del 0 al 9-->
-        <span *ngIf="caballaje.touched && !caballaje.valid">
-            El caballaje ingresado no es valido.
-        </span>
-    </p>
-    <p>
-        <label>Color:</label><br>
-        <input type="text" name="color" #color="ngModel" [(ngModel)]="coche.color" required
-            pattern="[a-zA-Z#]+">
-        <span *ngIf="color.touched && !color.valid">
-            El color del vehiculo ingresado no es valido.
-        </span>
-    </p>
+<div>
+    <form #formCoche="ngForm" (ngSubmit)="onSubmit(); formCoche.reset()">
+        <p>
+            <label>Marca:</label><br>
+            <input type="text" name="marca" #marca="ngModel" [(ngModel)]="coche.marca" required>
+            <span *ngIf="marca.touched && !marca.valid">
+                La marca ingresada no es valida.
+            </span>
+        </p>
+        <p>
+            <label>Linea:</label><br>
+            <input type="text" name="linea" #linea="ngModel" [(ngModel)]="coche.linea" required>
+            <span *ngIf="linea.touched && !linea.valid">
+                La linea del vehiculo ingresada no es valida.
+            </span>
+        </p>
+        <p>
+            <label>Caballaje:</label><br>
+            <input type="text" name="caballaje" #caballaje="ngModel" [(ngModel)]="coche.caballaje" required 
+                pattern="[0-9]+"> <!-- Solo acepta numeros del 0 al 9-->
+            <span *ngIf="caballaje.touched && !caballaje.valid">
+                El caballaje ingresado no es valido.
+            </span>
+        </p>
+        <p>
+            <label>Color:</label><br>
+            <input type="text" name="color" #color="ngModel" [(ngModel)]="coche.color" required
+                pattern="[a-zA-Z#]+">
+            <span *ngIf="color.touched && !color.valid">
+                El color del vehiculo ingresado no es valido.
+            </span>
+        </p>
 
-        <input type="submit" value="Guardar"  [disabled]="!formCoche.form.valid" >
-</form>
+            <input type="submit" value="Guardar"  [disabled]="!formCoche.form.valid" >
+    </form>
+</div>
+
 
 <div>
-    <h4>Listado de coches</h4>
+    <h3>Listado de coches</h3>
     <ul>
         <li *ngFor="let coche of coches"> <!-- Sale del array de coches de coches.component.ts -->
             {{coche.marca}} - {{coche.linea}} - {{coche.caballaje}} - {{coche.color}}
         </li>
     </ul>
 
+</div>
+
+<div>
+    <h3>Listado de articulos</h3>
+    <ul *ngIf="articulos">
+        <li *ngFor="let articulo of articulos">
+            {{articulo.id}} - {{articulo.title}}
+        </li>
+    </ul>
+    <span *ngIf="!articulos">Cargando listado</span>
 </div>

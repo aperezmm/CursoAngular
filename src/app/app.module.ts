@@ -14,6 +14,7 @@ import { FrutaComponent } from './fruta/fruta.component';
 
 import { ConversorPipe } from './pipes/conversor.pipe';
 import { CochesComponent } from './coches/coches.component';
+import { PlantillasComponent } from './plantillas/plantillas.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CochesComponent } from './coches/coches.component';
     EmpleadoComponent,
     FrutaComponent,
     ConversorPipe,
-    CochesComponent
+    CochesComponent,
+    PlantillasComponent
   ],
   imports: [
     BrowserModule,
